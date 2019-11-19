@@ -26,8 +26,7 @@ export class FormComponent implements OnInit {
    actExpLaboral:boolean = false;
    actRefPersonal:boolean = false;
    actAtExtra:boolean = false;
-   git remote add origin https://github.com/ElianMartinez/Form-Angular.git
-   git push -u origin master
+  
    @Input() formData;
     
     constructor(private nacionalidadService: NacionalidadesService ,private formDataService: FormDataService, private rutaActiva: ActivatedRoute, private router: Router) {

@@ -1,6 +1,6 @@
 import { Injectable }                        from '@angular/core';
 
-import { FormData, Personal,Com_Tec, Idioma,Experiencia_lab,Actividad_extra,Familia, Educacion}       from './formData.model';
+import { FormData, Personal,Com_Tec, Idiomas,Experiencia_lab,Actividad_extra,Referencia_personales,Familia, Educacion}       from './formData.model';
 
 @Injectable()
 export class FormDataService {
@@ -9,12 +9,63 @@ export class FormDataService {
     private isPersonalFormValid: boolean = false;
     private isFamiliaFormValid: boolean = false;
     private isEducacionFormValid: boolean = false;
-    private isAddressFormValid: boolean = false;
+    private isCom_TecFormValid: boolean = false;
+    private isIdiomasFormValid: boolean = false;
+    private isExperiencia_labFormValid: boolean = false;
+    private isActividad_extraFormValid: boolean = false;
+    private isReferencia_personalesFormValid: boolean = false;
+   
   //Get de Todos los datos
 
   getFormData(): FormData {
     // Return the entire Form Data
     return this.formData;
+}
+
+getCom_Tec(): Com_Tec {
+    // Return the entire Form Data
+   var com_tec: Com_Tec = {
+        com_tec : this.formData.com_tec
+    }
+    return com_tec;
+}
+
+getExperiencia_lab(): Experiencia_lab {
+    // Return the entire Form Data
+   var experiencia_lab : Experiencia_lab = {
+    experiencia_lab : this.formData.experiencia_lab
+    }
+    return experiencia_lab;
+}
+
+getReferencia_personales(): Referencia_personales {
+    // Return the entire Form Data
+   var referencia_personales : Referencia_personales = {
+    referencia_personales : this.formData.referencia_personales
+    }
+    return referencia_personales;
+}
+
+getIdioma(): Idiomas {
+    // Return the entire Form Data
+   var idiomas : Idiomas = {
+        idiomas : this.formData.idiomas
+    }
+    return idiomas;
+}
+
+getActividad_extra(): Actividad_extra {
+    // Return the entire Form Data
+   var actividad_extra : Actividad_extra = {
+    tipo_actividad : this.formData.tipo_actividad,
+    propia :this.formData.propia,
+    dias: this.formData.dias,
+    horario : this.formData.horario,
+    participacion_acciones: this.formData.participacion_acciones,
+    ingresos_promedio_mensuales: this.formData.ingresos_promedio_mensuales;
+    referenciado_apap: this.formData.referenciado_apap
+    }
+    return actividad_extra;
 }
 
     getPersonal(): Personal {
@@ -96,6 +147,51 @@ export class FormDataService {
         // Update the work type only when the Work Form had been validated successfully
         this.isFamiliaFormValid = true;
         this.formData.familia = data.familia;
+    }
+
+    setCom_Tec(): Com_Tec {
+        // Return the entire Form Data
+       var com_tec: Com_Tec = {
+            com_tec : this.formData.com_tec
+        }
+        return com_tec;
+    }
+    
+    setExperiencia_lab(): Experiencia_lab {
+        // Return the entire Form Data
+       var experiencia_lab : Experiencia_lab = {
+        experiencia_lab : this.formData.experiencia_lab
+        }
+        return experiencia_lab;
+    }
+    
+    setReferencia_personales(): Referencia_personales {
+        // Return the entire Form Data
+       var referencia_personales : Referencia_personales = {
+        referencia_personales : this.formData.referencia_personales
+        }
+        return referencia_personales;
+    }
+    
+    setIdioma(): Idiomas {
+        // Return the entire Form Data
+       var idiomas : Idiomas = {
+            idiomas : this.formData.idiomas
+        }
+        return idiomas;
+    }
+    
+    setActividad_extra(): Actividad_extra {
+        // Return the entire Form Data
+      
+      this.formData.tipo_actividad,
+      this.formData.propia,
+       this.formData.dias,
+      this.formData.horario,
+      this.formData.participacion_acciones,
+      this.formData.ingresos_promedio_mensuales;
+      this.formData.referenciado_apap
+     
     }
 
    

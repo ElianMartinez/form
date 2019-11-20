@@ -117,19 +117,35 @@ export class Address {
 }
 
 export class Familia {
-    familia:Object[] = [];
+    familia:Object[] = [
+        {
+            "nombre" : "", 
+            "parentesco" : "", 
+            "fecha_nac" : "",
+            "ocupacion" : "",
+            "telefono" :""
+        }
+    ];
 }
 
 
 export class Educacion {
     per_emergencia: string;
-    educacion:Object[] = [];
+    educacion:Object[] = [
+        {
+            "estudiante" : "", 
+            "centro_docente" : "", 
+            "fecha_inicio" : "",
+            "ocupacion" : "",
+            "telefono" :"" 
+        }
+    ];
 }
 export class Com_Tec {
     com_tec: Object[] = [];
 }
 
-export class Idioma {
+export class Idiomas {
     idiomas: Object[] = [];
 }
 
@@ -148,5 +164,8 @@ export class Actividad_extra{
     referenciado_apap: string;
 }
 
+export class Referencia_personales {
+    referencia_personales : Object[] = [];
+}
 
 

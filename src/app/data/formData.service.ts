@@ -1,6 +1,6 @@
 import { Injectable }                        from '@angular/core';
 
-import { FormData, Personal, Address, Familia}       from './formData.model';
+import { FormData, Personal, Address, Familia, Educacion}       from './formData.model';
 
 @Injectable()
 export class FormDataService {
@@ -8,6 +8,7 @@ export class FormDataService {
     private formData: FormData = new FormData();
     private isPersonalFormValid: boolean = false;
     private isFamiliaFormValid: boolean = false;
+    private isEducacionFormValid: boolean = false;
     private isAddressFormValid: boolean = false;
 
     getPersonal(): Personal {
@@ -55,6 +56,78 @@ export class FormDataService {
 
        
     }
+
+    getEducacion() : Educacion {
+        // Return the Familia type
+            var educacion : Educacion = {
+            educacion : this.formData.educacion
+
+            }
+            return educacion;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
     getFamilia() : Familia {
         // Return the Familia type

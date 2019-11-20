@@ -19,6 +19,7 @@ export class FormData {
 
     //Datos Familiares
      familia:Object[] = [];
+     educacion:Object[] = [];
      
     
 
@@ -72,4 +73,9 @@ export class Address {
 
 export class Familia {
     familia:Object[] = [];
+}
+
+
+export class Educacion {
+    educacion:Object[] = [];
 }

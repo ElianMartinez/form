@@ -153,8 +153,7 @@ export class FormComponent implements OnInit {
         this.familia = this.formDataService.getFamilia();
         this.step = this.rutaActiva.snapshot.params.number;
 
-        
-        console.log(this.familia_temp);
+ 
         this.nacionalidadService.getNacionalidad()
         .subscribe(
           (data) => { // Success
@@ -172,11 +171,10 @@ export class FormComponent implements OnInit {
             }
 
 
-           
-         
+          
            
             
-            console.log(this.familia.familia);
+            console.log(this.familia_temp);
            
           },
           (error) => {

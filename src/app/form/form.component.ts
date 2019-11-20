@@ -15,7 +15,7 @@ export class FormComponent implements OnInit {
   //datos Estraidos
   personal: Personal;
   familia: Familia;
-  educacion: Educacion;
+  public educacion: Educacion;
   com_tec: Com_Tec;
   idiomas: Idiomas;
   experiencia_lab: Experiencia_lab;
@@ -262,7 +262,7 @@ export class FormComponent implements OnInit {
     this.contadorE--;
     this.educacion.educacion.splice(i, 1);
     if (this.contadorE <= 0) {
-      this.f = false;
+      this.e = false;
     }
   }
   borrarC(i: number) {
@@ -330,7 +330,7 @@ export class FormComponent implements OnInit {
           "estudiante": this.educacion_temp.estudiante,
           "centro_docente": this.educacion_temp.centro_docente,
           "fecha_inicio": this.educacion_temp.fecha_inicio,
-          "fecha_fin": this.educacion_temp.fecha_final,
+          "fecha_final": this.educacion_temp.fecha_final,
           "grado_obtenido": this.educacion_temp.grado_obtenido,
           "actual": this.educacion_temp.actual
         });
@@ -446,6 +446,7 @@ export class FormComponent implements OnInit {
     this.experiencia_lab = this.formDataService.getExperiencia_lab();
     this.referencia_personales = this.formDataService.getReferencia_personales();
     this.actividad_extra = this.formDataService.getActividad_extra();
+    this.educacion = this.formDataService.getEducacion();
     this.step = this.rutaActiva.snapshot.params.number;
 
 

@@ -7,329 +7,551 @@
             <!-- Content Area -->
             <div class="tab-content">
                 <!-- Nested view  -->
-             <div class="personal" [ngClass]="actPersonal ? 'active' : 'disabled22' " >
- 
-               <form #personalForm="ngForm" class="editForm" novalidate>
-                   <div class="tab-pane fade in active">
-                       <h4 class="head text-center">Datos personales</h4>
-                       <br/>
-                       <div class='row'>
-                           <div class='col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 '>
-                              
-                            <div class="row">
-                                   <div class='col-xs-8 col-sm-4'>
-                                       <div class="form-group">
-                                           <label class="control-label" for="firstname">Nombre Completo</label>  
-                                           <input class="form-control input-md" #nombre="ngModel" required id="nombre" name="nombre" type="text" pattern="" placeholder="Nombre Completo" [(ngModel)]="personal.nombre">   
-                                           <div class="alert alert-danger" [hidden]="nombre.valid">First Name is required</div>
-                                       </div>
-                                       
-                                   </div>
-                                   <div class='col-xs-8 col-sm-4'>
-                                       <div class="form-group">
-                                           <label class="control-label">Apellidos</label>  
-                                           <input class="form-control input-md is-invalid" #apellido="ngModel" required id="apellido" name="apellido" type="text" placeholder="" [(ngModel)]="personal.apellido">
-                                           <div class="alert alert-danger" *ngIf="apellido.touched && !apellido.valid">Last Name is required</div>
-                                       </div>
-                                   </div>
-                                   <div class='col-xs-8 col-sm-4'>
-                                    <div class="form-group">
-                                        <label class="control-label" for="lastname">Estado civíl</label>  
-                                        <select class="form-control input-md is-invalid" #Estado_civil="ngModel" required id="Estado_civil" name="Estado_civil"   [(ngModel)]="personal.estado_civil">
-                                        <option value="Casado">Casado</option> 
-                                        <option value="Soltero/a"> Soltero/a</option>
-                                        </select>   
-                                        <div class="alert alert-danger" *ngIf="Estado_civil.touched && !Estado_civil.valid">Estado_civil is required</div>
+                <div class="personal" [ngClass]="actPersonal ? 'active' : 'disabled22' ">
+
+                    <form #personalForm="ngForm" class="editForm" novalidate>
+                        <div class="tab-pane fade in active">
+                            <h4 class="head text-center">Datos personales</h4>
+                            <br />
+                            <div class='row'>
+                                <div class='col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 '>
+
+                                    <div class="row">
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="firstname">Nombre Completo</label>
+                                                <input class="form-control input-md" #nombre="ngModel" required
+                                                    id="nombre" name="nombre" type="text" pattern=""
+                                                    placeholder="Nombre Completo" [(ngModel)]="personal.nombre">
+                                                <div class="alert alert-danger" [hidden]="nombre.valid">First Name is
+                                                    required</div>
+                                            </div>
+
+                                        </div>
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label">Apellidos</label>
+                                                <input class="form-control input-md is-invalid" #apellido="ngModel"
+                                                    required id="apellido" name="apellido" type="text" placeholder=""
+                                                    [(ngModel)]="personal.apellido">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="apellido.touched && !apellido.valid">Last Name is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="lastname">Estado civíl</label>
+                                                <select class="form-control input-md is-invalid" #Estado_civil="ngModel"
+                                                    required id="Estado_civil" name="Estado_civil"
+                                                    [(ngModel)]="personal.estado_civil">
+                                                    <option value="Casado">Casado</option>
+                                                    <option value="Soltero/a"> Soltero/a</option>
+                                                </select>
+                                                <div class="alert alert-danger"
+                                                    *ngIf="Estado_civil.touched && !Estado_civil.valid">Estado_civil is
+                                                    required</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                               </div>
-                               <div class="row">
-                                <div class='col-xs-8 col-sm-4'>
-                                    <div class="form-group">
-                                        <label class="control-label" for="nacionalidad">Nacionalidad</label>  
-                                        <select class="form-control input-md"  #nacionalidad="ngModel" required id="nacionalidad" name="nacionalidad"  [(ngModel)]="personal.nacionalidad" >
-                                            
-                                            <option *ngFor="let nac of nacionalidades"   value="{{nac + 'o'}}">{{nac + 'o'}}</option>
-                                        
-                                        </select>
-                                        <div class="alert alert-danger" *ngIf="nacionalidad.touched && !nacionalidad.valid">Estado_civil is required</div>
-                                    </div>
-                                </div>
-                                <div class='col-xs-8 col-sm-4'>
-                                        <div class="form-group">
-                                            <label class="control-label" for="tipo_documento">Tipo de documento</label>  
-                                            <select class="form-control input-md"  #tipo_documento="ngModel" required id="tipo_documento" name="tipo_documento"  [(ngModel)]="personal.tipo_documento" >
+                                    <div class="row">
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="nacionalidad">Nacionalidad</label>
+                                                <select class="form-control input-md" #nacionalidad="ngModel" required
+                                                    id="nacionalidad" name="nacionalidad"
+                                                    [(ngModel)]="personal.nacionalidad">
+
+                                                    <option *ngFor="let nac of nacionalidades" value="{{nac + 'o'}}">
+                                                        {{nac + 'o'}}</option>
+
+                                                </select>
+                                                <div class="alert alert-danger"
+                                                    *ngIf="nacionalidad.touched && !nacionalidad.valid">Estado_civil is
+                                                    required</div>
+                                            </div>
+                                        </div>
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="tipo_documento">Tipo de
+                                                    documento</label>
+                                                <select class="form-control input-md" #tipo_documento="ngModel" required
+                                                    id="tipo_documento" name="tipo_documento"
+                                                    [(ngModel)]="personal.tipo_documento">
                                                     <option value="Cédula">Cédula</option>
                                                     <option value="Pasaporte">Pasaporte</option>
                                                     <option value="Acta de Nacimiento">Acta de Nacimiento</option>
-                                            </select>
-                                            <div class="alert alert-danger" *ngIf="tipo_documento.touched && !tipo_documento.valid">Estado_civil is required</div>
-                                        </div>
-                                    </div>
-                                    <div class='col-xs-8 col-sm-4'>
-                                            <div class="form-group">
-                                                <label class="control-label" for="documento_identidad">Número de identidad</label>  
-                                                <input class="form-control input-md " #documento_identidad="ngModel" required id="documento_identidad" name="documento_identidad" type="text" minlength="11" maxlength="11" required pattern="[0-9]{11,11}" placeholder="" [(ngModel)]="personal.documento_identidad">
-                                                <div class="alert alert-danger" *ngIf="documento_identidad.touched && !documento_identidad.valid">Last Name is required</div>
-                                            </div>
-                                        </div>
-
-             
-                            </div>
-                            <div class="row">
-                                    <div class='col-xs-8 col-sm-4'>
-                                            <div class="form-group">
-                                                <label class="control-label" for="fecha_nacimiento">Fecha de Nacimiento</label>  
-                                                <input class="form-control input-md " #fecha_nacimiento="ngModel" required id="fecha_nacimiento" name="fecha_nacimiento"  type="date"  required  [(ngModel)]="personal.fecha_nacimiento">
-                                                <div class="alert alert-danger" *ngIf="fecha_nacimiento.touched && !fecha_nacimiento.valid">Last Name is required</div>
-                                            </div>
-                                        </div>
-
-                                        <div class='col-xs-8 col-sm-4'>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="">Lugar de Nacimiento</label>  
-                                                    <select class="form-control input-md " #lugar_Nacimiento="ngModel" required id="lugar_Nacimiento" name="lugar_Nacimiento" required  [(ngModel)]="personal.lugar_Nacimiento">
-                                                        <option value="Santo Domingo">Santo Domingo</option>
-                                                        <option value="Santiago">Santiago</option>  
-                                                        <option value="La Romana">La Romana</option>  
-                                                        <option value="San Cristobal">San Cristobal</option>      
-                                                    </select>
-                                                    <div class="alert alert-danger" *ngIf="lugar_Nacimiento.touched && !lugar_Nacimiento.valid">Last Name is required</div>
-                                                </div>
-                                            </div>
-
-                               <div class="col-xs-8 col-sm-4 form-group">
-                                   <label class="control-label" for="email">Correo Electronico</label>
-                                   <input class="form-control input-md" #correo="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="correo" name="correo" type="text" placeholder="Correo" [(ngModel)]="personal.correo">
-                                   <div class="alert alert-danger" [hidden]="correo.valid">Email is required and must be valid</div>
-                               </div>
-                            </div>
-                            <div class="row">
-                                    <div class='col-xs-8 col-sm-4'>
-                                            <div class="form-group">
-                                                <label class="control-label" for="Calle">Calle</label>  
-                                                <input class="form-control input-md " #calle="ngModel" required id="calle" name="calle"  type="text"  required  [(ngModel)]="personal.calle">
-                                                <div class="alert alert-danger" *ngIf="calle.touched && !calle.valid">Last Name is required</div>
-                                            </div>
-                                        </div>
-                                        <div class='col-xs-8 col-sm-4'>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="Edificio">Edificio</label>  
-                                                    <input class="form-control input-md" value=" " #Edificio="ngModel" required id="" name="Edificio" type="text" [(ngModel)]="personal.edificio">
-                                                   
-                                                </div>
-                                            </div>
-
-                                        <div class='col-xs-8 col-sm-4'>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="sector">Sector</label>  
-                                                    <select class="form-control input-md " #sector="ngModel" required id="sector" name="sector" required  [(ngModel)]="personal.sector">
-                                                        <option value="Villa Mella">Villa Mella</option>
-                                                        <option value="Guaricano">Guaricano</option>  
-                                                        <option value="Pantoja">Pantoja</option>  
-                                                        <option value="Nuevo Domingo Savio">Nuevo Domingo Savio</option>      
-                                                    </select>
-                                                    <div class="alert alert-danger" *ngIf="sector.touched && !sector.valid">Last Name is required</div>
-                                                </div>
-                                            </div>
-
-
-                            </div>
-                            <div class="row">
-                                  
-                                    <div class='col-xs-8 col-sm-4'>
-                                            <div class="form-group">
-                                                <label class="control-label" for="ciudad">Ciudad</label>  
-                                                <select class="form-control input-md " #ciudad="ngModel" required id="ciudad" name="ciudad" required  [(ngModel)]="personal.ciudad">
-                                                    <option value="Santo Domingo">Santo Domingo</option>
-                                                    <option value="Santiago">Santiago</option>  
-                                                    <option value="La Romana">La Romana</option>  
-                                                    <option value="San Cristobal">San Cristobal</option>    
                                                 </select>
-                                                <div class="alert alert-danger" *ngIf="sector.touched && !sector.valid">Last Name is required</div>
+                                                <div class="alert alert-danger"
+                                                    *ngIf="tipo_documento.touched && !tipo_documento.valid">Estado_civil
+                                                    is required</div>
                                             </div>
                                         </div>
                                         <div class='col-xs-8 col-sm-4'>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="telefonos">Teléfono</label>  
-                                                    <input class="form-control input-md " #telefonos="ngModel" required id="" name="telefonos" type="tel" maxlength="10" pattern="[0-9]{10}" [(ngModel)]="personal.telefono_residencia">
-                                                    <div class="alert alert-danger" *ngIf="telefonos.touched && !telefonos.valid">Last Name is required</div>
+                                            <div class="form-group">
+                                                <label class="control-label" for="documento_identidad">Número de
+                                                    identidad</label>
+                                                <input class="form-control input-md " #documento_identidad="ngModel"
+                                                    required id="documento_identidad" name="documento_identidad"
+                                                    type="text" minlength="11" maxlength="11" required
+                                                    pattern="[0-9]{11,11}" placeholder=""
+                                                    [(ngModel)]="personal.documento_identidad">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="documento_identidad.touched && !documento_identidad.valid">
+                                                    Last Name is required</div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="fecha_nacimiento">Fecha de
+                                                    Nacimiento</label>
+                                                <input class="form-control input-md " #fecha_nacimiento="ngModel"
+                                                    required id="fecha_nacimiento" name="fecha_nacimiento" type="date"
+                                                    required [(ngModel)]="personal.fecha_nacimiento">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="fecha_nacimiento.touched && !fecha_nacimiento.valid">Last
+                                                    Name is required</div>
+                                            </div>
+                                        </div>
+
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="">Lugar de Nacimiento</label>
+                                                <select class="form-control input-md " #lugar_Nacimiento="ngModel"
+                                                    required id="lugar_Nacimiento" name="lugar_Nacimiento" required
+                                                    [(ngModel)]="personal.lugar_Nacimiento">
+                                                    <option value="Santo Domingo">Santo Domingo</option>
+                                                    <option value="Santiago">Santiago</option>
+                                                    <option value="La Romana">La Romana</option>
+                                                    <option value="San Cristobal">San Cristobal</option>
+                                                </select>
+                                                <div class="alert alert-danger"
+                                                    *ngIf="lugar_Nacimiento.touched && !lugar_Nacimiento.valid">Last
+                                                    Name is required</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-8 col-sm-4 form-group">
+                                            <label class="control-label" for="email">Correo Electronico</label>
+                                            <input class="form-control input-md" #correo="ngModel" required
+                                                pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="correo" name="correo"
+                                                type="text" placeholder="Correo" [(ngModel)]="personal.correo">
+                                            <div class="alert alert-danger" [hidden]="correo.valid">Email is required
+                                                and must be valid</div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="Calle">Calle</label>
+                                                <input class="form-control input-md " #calle="ngModel" required
+                                                    id="calle" name="calle" type="text" required
+                                                    [(ngModel)]="personal.calle">
+                                                <div class="alert alert-danger" *ngIf="calle.touched && !calle.valid">
+                                                    Last Name is required</div>
+                                            </div>
+                                        </div>
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="Edificio">Edificio</label>
+                                                <input class="form-control input-md" value=" " #Edificio="ngModel"
+                                                    required id="" name="Edificio" type="text"
+                                                    [(ngModel)]="personal.edificio">
+
+                                            </div>
+                                        </div>
+
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="sector">Sector</label>
+                                                <select class="form-control input-md " #sector="ngModel" required
+                                                    id="sector" name="sector" required [(ngModel)]="personal.sector">
+                                                    <option value="Villa Mella">Villa Mella</option>
+                                                    <option value="Guaricano">Guaricano</option>
+                                                    <option value="Pantoja">Pantoja</option>
+                                                    <option value="Nuevo Domingo Savio">Nuevo Domingo Savio</option>
+                                                </select>
+                                                <div class="alert alert-danger" *ngIf="sector.touched && !sector.valid">
+                                                    Last Name is required</div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="ciudad">Ciudad</label>
+                                                <select class="form-control input-md " #ciudad="ngModel" required
+                                                    id="ciudad" name="ciudad" required [(ngModel)]="personal.ciudad">
+                                                    <option value="Santo Domingo">Santo Domingo</option>
+                                                    <option value="Santiago">Santiago</option>
+                                                    <option value="La Romana">La Romana</option>
+                                                    <option value="San Cristobal">San Cristobal</option>
+                                                </select>
+                                                <div class="alert alert-danger" *ngIf="sector.touched && !sector.valid">
+                                                    Last Name is required</div>
+                                            </div>
+                                        </div>
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="telefonos">Teléfono</label>
+                                                <input class="form-control input-md " #telefonos="ngModel" required
+                                                    id="" name="telefonos" type="tel" maxlength="10" pattern="[0-9]{10}"
+                                                    [(ngModel)]="personal.telefono_residencia">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="telefonos.touched && !telefonos.valid">Last Name is required
                                                 </div>
                                             </div>
+                                        </div>
 
-                                            <div class='col-xs-8 col-sm-4'>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="celular">Celular</label>  
-                                                        <input class="form-control input-md " #celular="ngModel" required id="celular" name="celular" type="tel" maxlength="10" pattern="[0-9]{10}" [(ngModel)]="personal.celular">
-                                                        <div class="alert alert-danger" *ngIf="telefonos.touched && !telefonos.valid">Last Name is required</div>
-                                                    </div>
+                                        <div class='col-xs-8 col-sm-4'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="celular">Celular</label>
+                                                <input class="form-control input-md " #celular="ngModel" required
+                                                    id="celular" name="celular" type="tel" maxlength="10"
+                                                    pattern="[0-9]{10}" [(ngModel)]="personal.celular">
+                                                <div class="alert alert-danger"
+                                                    *ngIf="telefonos.touched && !telefonos.valid">Last Name is required
                                                 </div>
-                                              <!--   -->
+                                            </div>
+                                        </div>
+                                        <!--   -->
 
 
-                            </div>
-                                   
-                               <div class="form-group text-center">
-                                   <button class="btn btn-success btn-outline-rounded btn-info"  (click)="(activarStep(2,personalForm))"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
-               </form> 
-              
-             </div>
-            
- 
-             <div [ngClass]="actFamiliar ? 'active' : 'disabled22' ">
-                    <div class="tab-pane fade in active">
-                            <h4 class="head text-center">Datos personales</h4>
-                            <br/>
-                          
-            
-              <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
-                    <form #familiaForm="ngForm" class="editForm" novalidate>
-                <div class="row">
-                  
-                        <div class='col-xs-8 col-sm-4'>
-                                <div class="form-group">
-                                    <label class="control-label" for="noombre_f">Nombre</label>  
-                                    <input class="form-control input-md " #noombre_f="ngModel" required id="noombre_f" name="noombre_f" type="text"  required [(ngModel)]="familia_temp.nombre">
-                                    <div class="alert alert-danger" *ngIf="noombre_f.touched && !noombre_f.valid">Last Name is required</div>
-                                </div>
-                            </div>
-                            <div class='col-xs-8 col-sm-4'>
-                                    <div class="form-group">
-                                        <label class="control-label" for="parentesco">Parentesco</label>  
-                                        <select class="form-control input-md " #parentesco="ngModel" required id="parentesco" name="parentesco" required  [(ngModel)]="familia_temp.parentesco">
-                                            <option value="Padre">Padre</option>
-                                            <option value="Madre">Madre</option>  
-                                            <option value="Hermano">Hermano</option>  
-                                            <option value="Hermana">Hermana</option>    
-                                        </select>
-                                        <div class="alert alert-danger" *ngIf="parentesco.touched && !parentesco.valid">Last Name is required</div>
                                     </div>
-                            </div>
-                            <div class='col-xs-8 col-sm-4'>
-                                    <div class="form-group">
-                                        <label class="control-label" for="ocupacion">Ocupación</label>  
-                                        <input class="form-control input-md " #ocupacion="ngModel" required id="ocupacion" name="ocupacion" type="text"  required [(ngModel)]="familia_temp.ocupacion">
-                                        <div class="alert alert-danger" *ngIf="ocupacion.touched && !ocupacion.valid">Last Name is required</div>
+
+                                    <div class="form-group text-center">
+                                        <button class="btn btn-success btn-outline-rounded btn-info"
+                                            (click)="(activarStep(2,personalForm))"> Next <span
+                                                style="margin-left:10px;"
+                                                class="glyphicon glyphicon-arrow-right"></span></button>
                                     </div>
                                 </div>
-                       
-                            
-
-                                
-                                   
-                                  <!--   -->
-
-
-                </div>
-                <div class="row">
-                       
-                        <div class='col-xs-8 col-sm-4'>
-                                <div class="form-group">
-                                    <label class="control-label" for="fecha_nacimiento">Fecha Nacimiento</label>  
-                                    <input class="form-control input-md " #fecha_nacimiento="ngModel" required id="fecha_nacimiento" name="fecha_nacimiento"  type="date"  required  [(ngModel)]="familia_temp.fecha_nac">
-                                    <div class="alert alert-danger" *ngIf="fecha_nacimiento.touched && !fecha_nacimiento.valid">Last Name is required</div>
-                                </div>
                             </div>
-                       
-                            <div class='col-xs-8 col-sm-4'>
-                                    <div class="form-group">
-                                        <label class="control-label" for="telefonos">Teléfono</label>  
-                                        <input class="form-control input-md " #telefonos="ngModel" required id="" name="telefonos" type="tel" maxlength="10" pattern="[0-9]{10}" [(ngModel)]="familia_temp.telefono">
-                                        <div class="alert alert-danger" *ngIf="telefonos.touched && !telefonos.valid">Last Name is required</div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group text-center">
-                                        <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!familiaForm.valid" (click)="(agregarF())"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
-                                    </div>
-                             
-                                  <!--   -->
-
-
-                </div>
-            </form>
-                </div>
-                <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
-              <div class="row">
-
-                <div class="table-responsive">
-                            <table class="table table-bordered  table-hover">
-                                    
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>Nombre</th>
-                                                    <th>Parentesco</th>
-                                                    <th>Fecha de Nacimiento</th>
-                                                    <th>Ocupación</th>
-                                                    <th>Teléfono</th>
-                                                    <th>Eliminar</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr *ngFor="let fam of familia.familia;let indice=index">
-                                                    <td>{{indice+1}}</td>
-                                                    <td>{{fam.nombre}}</td>
-                                                    <td>{{fam.parentesco}}</td>
-                                                    <td>{{fam.fecha_nac}}</td>
-                                                    <td>{{fam.ocupacion}}</td>
-                                                    <td>{{fam.telefono}}</td>
-                                                    <td (click)="borrarF(indice)"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></td>
-                                                </tr>
-                                                
-                                            </tbody>
-                                        
-                            </table>
-                          </div>
                         </div>
+                    </form>
+
+                </div>
+
+
+                <div [ngClass]="actFamiliar ? 'active' : 'disabled22' ">
+                    <div class="tab-pane fade in active">
+                        <h4 class="head text-center">Datos Familiares</h4>
+                        <br />
+
+
+                        <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+                            <form #familiaForm="ngForm" class="editForm" novalidate>
+                                <div class="row">
+
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="noombre_f">Nombre</label>
+                                            <input class="form-control input-md " #noombre_f="ngModel" required
+                                                id="noombre_f" name="noombre_f" type="text" required
+                                                [(ngModel)]="familia_temp.nombre">
+                                            <div class="alert alert-danger"
+                                                *ngIf="noombre_f.touched && !noombre_f.valid">Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="parentesco">Parentesco</label>
+                                            <select class="form-control input-md " #parentesco="ngModel" required
+                                                id="parentesco" name="parentesco" required
+                                                [(ngModel)]="familia_temp.parentesco">
+                                                <option value="Padre">Padre</option>
+                                                <option value="Madre">Madre</option>
+                                                <option value="Hermano">Hermano</option>
+                                                <option value="Hermana">Hermana</option>
+                                            </select>
+                                            <div class="alert alert-danger"
+                                                *ngIf="parentesco.touched && !parentesco.valid">Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="ocupacion">Ocupación</label>
+                                            <input class="form-control input-md " #ocupacion="ngModel" required
+                                                id="ocupacion" name="ocupacion" type="text" required
+                                                [(ngModel)]="familia_temp.ocupacion">
+                                            <div class="alert alert-danger"
+                                                *ngIf="ocupacion.touched && !ocupacion.valid">Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+                                </div>
+                                <div class="row">
+
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="fecha_nacimiento">Fecha Nacimiento</label>
+                                            <input class="form-control input-md " #fecha_nacimiento="ngModel" required
+                                                id="fecha_nacimiento" name="fecha_nacimiento" type="date" required
+                                                [(ngModel)]="familia_temp.fecha_nac">
+                                            <div class="alert alert-danger"
+                                                *ngIf="fecha_nacimiento.touched && !fecha_nacimiento.valid">Last Name is
+                                                required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="telefonos">Teléfono</label>
+                                            <input class="form-control input-md " #telefonos="ngModel" required id=""
+                                                name="telefonos" type="tel" maxlength="10" pattern="[0-9]{10}"
+                                                [(ngModel)]="familia_temp.telefono">
+                                            <div class="alert alert-danger"
+                                                *ngIf="telefonos.touched && !telefonos.valid">Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group text-center">
+                                        <button class="btn btn-success btn-outline-rounded"
+                                            [disabled]="!familiaForm.valid" (click)="(agregarF())"> <i
+                                                style="font-size: 20px;" class="fas fa-user-plus"></i></button>
+                                    </div>
+
+                                    <!--   -->
+
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+                            <div class="row">
+
+                                <div class="table-responsive">
+                                    <table class="table table-bordered  table-hover">
+
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nombre</th>
+                                                <th>Parentesco</th>
+                                                <th>Fecha de Nacimiento</th>
+                                                <th>Ocupación</th>
+                                                <th>Teléfono</th>
+                                                <th>Eliminar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let fam of familia.familia;let indice=index">
+                                                <td>{{indice+1}}</td>
+                                                <td>{{fam.nombre}}</td>
+                                                <td>{{fam.parentesco}}</td>
+                                                <td>{{fam.fecha_nac}}</td>
+                                                <td>{{fam.ocupacion}}</td>
+                                                <td>{{fam.telefono}}</td>
+                                                <td (click)="borrarF(indice)" class="btn btn-danger"><i
+                                                        class="fas fa-trash-alt"></i></td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group text-center">
-                            <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!f"  (click)="(activarStep(3,familiaForm))"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+                            <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!f"
+                                (click)="(activarStep(3,familiaForm))"> Next <span style="margin-left:10px;"
+                                    class="glyphicon glyphicon-arrow-right"></span></button>
                         </div>
-                        
-                       
-           
-                 </div>
-             </div>
-                     
-           
- 
- 
-             <div class="Educacion" [ngClass]="actEducacion ? 'active' : 'disabled22' ">
-                     <p>Educacion </p>
-                     <button (click)="activarStep(4)" >next</button>
-             </div>
- 
- 
- 
-             <div class="ConTec" [ngClass]="actConTec ? 'active' : 'disabled22' ">
-                     <p>Con Tec</p>
-                     <button (click)="activarStep(5)" >next</button>
-             </div>
- 
-             <div class="Idioma" [ngClass]="actIdioma ? 'active' : 'disabled22' ">
-                     <p>Idiomas</p>
-                     <button (click)="activarStep(6)" >next</button>
-             </div>
- 
-             <div class="ExpLaboral" [ngClass]="actExpLaboral ? 'active' : 'disabled22' ">
-                     <p>Experiencia Laboral</p>
-                     <button (click)="activarStep(7)" >next</button>
-             </div>
- 
- 
- 
+
+
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="Educacion" [ngClass]="actEducacion ? 'active' : 'disabled22' ">
+                    <div class="tab-pane fade in active">
+                        <h4 class="head text-center">Datos de Educacion</h4>
+                        <br />
+
+
+                        <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+                            <form #EducacionForm="ngForm" class="editForm" novalidate>
+                                <div class="row">
+
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="noombre_f">Nombre</label>
+                                            <input class="form-control input-md " #noombre_f="ngModel" required
+                                                id="noombre_f" name="noombre_f" type="text" required
+                                                [(ngModel)]="educacion_temp.nombre">
+                                            <div class="alert alert-danger"
+                                                *ngIf="noombre_f.touched && !noombre_f.valid">Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="parentesco">Parentesco</label>
+                                            <select class="form-control input-md " #parentesco="ngModel" required
+                                                id="parentesco" name="parentesco" required
+                                                [(ngModel)]="educacion_temp.parentesco">
+                                                <option value="Padre">Padre</option>
+                                                <option value="Madre">Madre</option>
+                                                <option value="Hermano">Hermano</option>
+                                                <option value="Hermana">Hermana</option>
+                                            </select>
+                                            <div class="alert alert-danger"
+                                                *ngIf="parentesco.touched && !parentesco.valid">Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="ocupacion">Ocupación</label>
+                                            <input class="form-control input-md " #ocupacion="ngModel" required
+                                                id="ocupacion" name="ocupacion" type="text" required
+                                                [(ngModel)]="educacion_temp.ocupacion">
+                                            <div class="alert alert-danger"
+                                                *ngIf="ocupacion.touched && !ocupacion.valid">Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+                                </div>
+                                <div class="row">
+
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="fecha_nacimiento">Fecha Nacimiento</label>
+                                            <input class="form-control input-md " #fecha_nacimiento="ngModel" required
+                                                id="fecha_nacimiento" name="fecha_nacimiento" type="date" required
+                                                [(ngModel)]="educacion_temp.fecha_nac">
+                                            <div class="alert alert-danger"
+                                                *ngIf="fecha_nacimiento.touched && !fecha_nacimiento.valid">Last Name is
+                                                required</div>
+                                        </div>
+                                    </div>
+
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="telefonos">Teléfono</label>
+                                            <input class="form-control input-md " #telefonos="ngModel" required id=""
+                                                name="telefonos" type="tel" maxlength="10" pattern="[0-9]{10}"
+                                                [(ngModel)]="educacion_temp.telefono">
+                                            <div class="alert alert-danger"
+                                                *ngIf="telefonos.touched && !telefonos.valid">Last Name is required
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group text-center">
+                                        <button class="btn btn-success btn-outline-rounded"
+                                            [disabled]="!EducacionForm.valid" (click)="(agregar())"> <i
+                                                style="font-size: 20px;" class="fas fa-user-plus"></i></button>
+                                    </div>
+
+                                    <!--   -->
+
+
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+                            <div class="row">
+
+                                <div class="table-responsive">
+                                    <table class="table table-bordered  table-hover">
+
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nombre</th>
+                                                <th>Parentesco</th>
+                                                <th>Fecha de Nacimiento</th>
+                                                <th>Ocupación</th>
+                                                <th>Teléfono</th>
+                                                <th>Eliminar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let fam of familia.familia;let indice=index">
+                                                <td>{{indice+1}}</td>
+                                                <td>{{fam.nombre}}</td>
+                                                <td>{{fam.parentesco}}</td>
+                                                <td>{{fam.fecha_nac}}</td>
+                                                <td>{{fam.ocupacion}}</td>
+                                                <td>{{fam.telefono}}</td>
+                                                <td (click)="borrarF(indice)" class="btn btn-danger"><i
+                                                        class="fas fa-trash-alt"></i></td>
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!f"
+                                (click)="(activarStep(3,familiaForm))"> Next <span style="margin-left:10px;"
+                                    class="glyphicon glyphicon-arrow-right"></span></button>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="ConTec" [ngClass]="actConTec ? 'active' : 'disabled22' ">
+                    <p>Con Tec</p>
+                    <button (click)="activarStep(5)">next</button>
+                </div>
+
+                <div class="Idioma" [ngClass]="actIdioma ? 'active' : 'disabled22' ">
+                    <p>Idiomas</p>
+                    <button (click)="activarStep(6)">next</button>
+                </div>
+
+                <div class="ExpLaboral" [ngClass]="actExpLaboral ? 'active' : 'disabled22' ">
+                    <p>Experiencia Laboral</p>
+                    <button (click)="activarStep(7)">next</button>
+                </div>
+
+
+
             </div>
- 
+
             <!-- End Content Area -->
         </div>
-  
+
         <!-- For Debugging: show our valid formData -->
         <pre>{{ formData | json }}</pre>
     </div>
-  </section>
+</section>

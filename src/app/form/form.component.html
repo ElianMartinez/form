@@ -164,13 +164,13 @@
                                                         <div class="alert alert-danger" *ngIf="telefonos.touched && !telefonos.valid">Last Name is required</div>
                                                     </div>
                                                 </div>
-                                              <!--  [disabled]="!personalForm.valid" -->
+                                              <!--   -->
 
 
                             </div>
                                    
                                <div class="form-group text-center">
-                                   <button class="btn btn-success btn-outline-rounded btn-info"  (click)="(activarStep(2,personalForm))"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+                                   <button class="btn btn-success btn-outline-rounded btn-info"   (click)="(activarStep(2,personalForm))"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
                                </div>
                            </div>
                        </div>
@@ -181,43 +181,116 @@
             
  
              <div [ngClass]="actFamiliar ? 'active' : 'disabled22' ">
-                    <div class="table-responsive container">
-                            <table class="table">
+                    <div class="tab-pane fade in active">
+                            <h4 class="head text-center">Datos personales</h4>
+                            <br/>
+                          
+            
+              <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+                <div class="row">
+                        <div class='col-xs-8 col-sm-4'>
+                                <div class="form-group">
+                                    <label class="control-label" for="noombre_f">Nombre</label>  
+                                    <input class="form-control input-md " #noombre_f="ngModel" required id="noombre_f" name="noombre_f" type="text"  required [(ngModel)]="familia_temp.nombre">
+                                    <div class="alert alert-danger" *ngIf="noombre_f.touched && !noombre_f.valid">Last Name is required</div>
+                                </div>
+                            </div>
+                            <div class='col-xs-8 col-sm-4'>
+                                    <div class="form-group">
+                                        <label class="control-label" for="parentesco">Parentesco</label>  
+                                        <select class="form-control input-md " #parentesco="ngModel" required id="parentesco" name="parentesco" required  [(ngModel)]="familia_temp.parentesco">
+                                            <option value="Padre">Padre</option>
+                                            <option value="Madre">Madre</option>  
+                                            <option value="Hermano">Hermano</option>  
+                                            <option value="Hermana">Hermana</option>    
+                                        </select>
+                                        <div class="alert alert-danger" *ngIf="parentesco.touched && !parentesco.valid">Last Name is required</div>
+                                    </div>
+                            </div>
+                            <div class='col-xs-8 col-sm-4'>
+                                    <div class="form-group">
+                                        <label class="control-label" for="ocupacion">Ocupación</label>  
+                                        <input class="form-control input-md " #ocupacion="ngModel" required id="ocupacion" name="ocupacion" type="text"  required [(ngModel)]="familia_temp.ocupacion">
+                                        <div class="alert alert-danger" *ngIf="ocupacion.touched && !ocupacion.valid">Last Name is required</div>
+                                    </div>
+                                </div>
+                       
+                            
+
+                                
+                                   
+                                  <!--   -->
+
+
+                </div>
+                <div class="row">
+                       
+                        <div class='col-xs-8 col-sm-4'>
+                                <div class="form-group">
+                                    <label class="control-label" for="fecha_nacimiento"></label>  
+                                    <input class="form-control input-md " #fecha_nacimiento="ngModel" required id="fecha_nacimiento" name="fecha_nacimiento"  type="date"  required  [(ngModel)]="familia_temp.fecha_nac">
+                                    <div class="alert alert-danger" *ngIf="fecha_nacimiento.touched && !fecha_nacimiento.valid">Last Name is required</div>
+                                </div>
+                            </div>
+                       
+                            <div class='col-xs-8 col-sm-4'>
+                                    <div class="form-group">
+                                        <label class="control-label" for="telefonos">Teléfono</label>  
+                                        <input class="form-control input-md " #telefonos="ngModel" required id="" name="telefonos" type="tel" maxlength="10" pattern="[0-9]{10}" [(ngModel)]="familia_temp.telefono">
+                                        <div class="alert alert-danger" *ngIf="telefonos.touched && !telefonos.valid">Last Name is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-center">
+                                        <button class="btn btn-success btn-outline-rounded btn-info"   (click)="(agregarF())"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+                                    </div>
+                                   
+                                  <!--   -->
+
+
+                </div>
+                </div>
+                <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+              <div class="row">
+
+                <div class="table-responsive">
+                            <table class="table table-bordered  table-hover">
                                     
                                             <thead>
                                                 <tr>
+                                                    <th>No</th>
                                                     <th>Nombre</th>
-                                                    <th>Apellido</th>
-                                                    <th>Apellido</th>
-                                                    <th>Apellido</th>
+                                                    <th>Parentesco</th>
+                                                    <th>Fecha de Nacimiento</th>
+                                                    <th>Ocupación</th>
+                                                    <th>Teléfono</th>
+                                                    <th>Eliminar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Rocky</td>
-                                                    <td>Balboa</td>
-                                                    <td>Rocky</td>
-                                                    <td>Balboa</td>
-                                        
+                                                <tr *ngFor="let fam of familia.familia;let indice=index">
+                                                    <td>{{indice+1}}</td>
+                                                    <td>{{fam.nombre}}</td>
+                                                    <td>{{fam.parentesco}}</td>
+                                                    <td>{{fam.fecha_nac}}</td>
+                                                    <td>{{fam.ocupacion}}</td>
+                                                    <td>{{fam.telefono}}</td>
+                                                    <td (click)="borrarF(indice)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Indiana</td>
-                                                    <td>Jones</td>
-                                                    <td>Rocky</td>
-                                                    <td>Balboa</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Willy</td>
-                                                    <td>Wonka</td>
-                                                    <td>Rocky</td>
-                                                    <td>Balboa</td>
-                                                </tr>
+                                                
                                             </tbody>
                                         
                             </table>
                           </div>
-                     <button (click)="activarStep(3);" >next</button>
+                        </div>
+                        </div>
+                        
+                       
+           
+                 </div>
              </div>
+                     
+           
  
  
              <div class="Educacion" [ngClass]="actEducacion ? 'active' : 'disabled22' ">

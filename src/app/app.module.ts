@@ -9,7 +9,7 @@ import { NavbarComponent }    from './navbar/navbar.component';
 
 /* Feature Components */
 import { PersonalComponent }  from './personal/personal.component';
-import { WorkComponent }      from './work/work.component';
+
 
 import { ResultComponent }    from './result/result.component';
 
@@ -31,7 +31,7 @@ import { FormComponent } from './form/form.component';
                     HttpClientModule
                   ],
     providers:    [{ provide: FormDataService, useClass: FormDataService}, NacionalidadesService],
-    declarations: [ AppComponent, NavbarComponent, PersonalComponent, WorkComponent, ResultComponent, IdiomaComponent, FormComponent ],
+    declarations: [ AppComponent, NavbarComponent, PersonalComponent, ResultComponent, IdiomaComponent, FormComponent ],
     bootstrap:    [ AppComponent ]
 })
 

@@ -1,13 +1,13 @@
 import { Injectable }                        from '@angular/core';
 
-import { FormData, Personal, Address }       from './formData.model';
+import { FormData, Personal, Address, Familia}       from './formData.model';
 
 @Injectable()
 export class FormDataService {
 
     private formData: FormData = new FormData();
     private isPersonalFormValid: boolean = false;
-    private isWorkFormValid: boolean = false;
+    private isFamiliaFormValid: boolean = false;
     private isAddressFormValid: boolean = false;
 
     getPersonal(): Personal {
@@ -56,15 +56,19 @@ export class FormDataService {
        
     }
 
-    getWork() : string {
-        // Return the work type
-        return this.formData.work;
+    getFamilia() : Familia {
+        // Return the Familia type
+            var familia : Familia = {
+                familia : this.formData.familia
+
+            }
+            return familia;
     }
     
-    setWork(data: string) {
+    setFamilia(data: Familia) {
         // Update the work type only when the Work Form had been validated successfully
-        this.isWorkFormValid = true;
-        this.formData.work = data;
+        this.isFamiliaFormValid = true;
+        this.formData.familia = data.familia;
     }
 
     getAddress() : Address {
@@ -95,14 +99,14 @@ export class FormDataService {
     resetFormData(): FormData {
         // Return the form data after all this.* members had been reset
         this.formData.clear();
-        this.isPersonalFormValid = this.isWorkFormValid = this.isAddressFormValid = false;
+        this.isPersonalFormValid = this.isFamiliaFormValid = this.isAddressFormValid = false;
         return this.formData;
     }
 
     isFormValid() {
         // Return true if all forms had been validated successfully; otherwise, return false
         return this.isPersonalFormValid &&
-                this.isWorkFormValid && 
+                this.isFamiliaFormValid && 
                 this.isAddressFormValid;
     }
 }

@@ -18,9 +18,7 @@ export class FormData {
     correo:string = '';
 
     //Datos Familiares
-     familia= [
-        {nombre: '', parentesco: '', fechaN: '', ocupacion: '', telefono: ''}
-     ];
+     familia:Object[] = [];
      
     
 
@@ -70,4 +68,8 @@ export class Address {
     city: string = '';
     state: string = '';
     zip: string = '';
+}
+
+export class Familia {
+    familia:Object[] = [];
 }

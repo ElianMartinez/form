@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormDataService } from '../data/formData.service';
-import { Personal } from '../data/formData.model';
+import { Personal, Familia} from '../data/formData.model';
 import { Router } from '@angular/router';
 import { NacionalidadesService } from '../data/nacionalidades.service';
 
@@ -13,9 +13,18 @@ import { NacionalidadesService } from '../data/nacionalidades.service';
 })
 export class FormComponent implements OnInit {
   personal: Personal;
+  public familia: Familia;
     nacionalida: any;
    public nacionalidades: any[] = [];
-  
+   contadorF:number = 0;
+   familia_temp = {
+    "nombre" : "",
+    "parentesco" : "",
+    "fecha_nac" : "",
+    "ocupacion" : "",
+    "telefono" : "" 
+  }
+
    step:string;
    title = 'Multi-Step Wizard';
    actPersonal:boolean = true;
@@ -110,15 +119,42 @@ export class FormComponent implements OnInit {
     console.log(this.personal);
     this.formDataService.setPersonal(this.personal);
     return true;
-}
 
+}
+    borrarF(i : number){
+      this.contadorF--;
+        this.familia.familia.splice(i,1);
+    }
+
+
+
+    agregarF(){
+        this.contadorF++;
+      if(this.contadorF <= 6){
+
+        this.familia.familia.push
+      ({
+      "nombre" : this.familia_temp.nombre, 
+      "parentesco" : this.familia_temp.parentesco, 
+      "fecha_nac" : this.familia_temp.fecha_nac,
+      "ocupacion" : this.familia_temp.ocupacion,
+      "telefono" : this.familia_temp.telefono 
+    });
+      }else{
+        alert("No se pueden agregar más familiares");
+      }
+
+      
+    }
  
     ngOnInit() {
         this.personal = this.formDataService.getPersonal();
         this.formData = this.formDataService.getFormData();
+        this.familia = this.formDataService.getFamilia();
         this.step = this.rutaActiva.snapshot.params.number;
 
-
+        
+        console.log(this.familia_temp);
         this.nacionalidadService.getNacionalidad()
         .subscribe(
           (data) => { // Success
@@ -134,9 +170,14 @@ export class FormComponent implements OnInit {
               }
                 
             }
-          
+
+
            
-            console.log(this.nacionalidades);
+         
+           
+            
+            console.log(this.familia.familia);
+           
           },
           (error) => {
             console.error(error);

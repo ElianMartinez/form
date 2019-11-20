@@ -1,6 +1,6 @@
 import { Injectable }                        from '@angular/core';
 
-import { FormData, Personal, Address, Familia, Educacion}       from './formData.model';
+import { FormData, Personal,Com_Tec, Idioma,Experiencia_lab,Actividad_extra,Familia, Educacion}       from './formData.model';
 
 @Injectable()
 export class FormDataService {
@@ -10,6 +10,12 @@ export class FormDataService {
     private isFamiliaFormValid: boolean = false;
     private isEducacionFormValid: boolean = false;
     private isAddressFormValid: boolean = false;
+  //Get de Todos los datos
+
+  getFormData(): FormData {
+    // Return the entire Form Data
+    return this.formData;
+}
 
     getPersonal(): Personal {
         // Return the Personal data
@@ -33,7 +39,28 @@ export class FormDataService {
         };
         return personal;
     }
+    getEducacion() : Educacion {
+        // Return the Familia type
+            var educacion : Educacion = {
+            per_emergencia: this.formData.per_emergencia,
+            educacion : this.formData.educacion
 
+            }
+            return educacion;
+    }
+
+    getFamilia() : Familia {
+        // Return the Familia type
+            var familia : Familia = {
+                familia : this.formData.familia
+
+            }
+            return familia;
+    }
+    
+
+
+    //Set de todos los datos
     setPersonal(data: Personal) {
         // Update the Personal data only when the Personal Form had been validated successfully
         this.isPersonalFormValid = true;
@@ -56,123 +83,29 @@ export class FormDataService {
 
        
     }
-
-    getEducacion() : Educacion {
-        // Return the Familia type
-            var educacion : Educacion = {
-            educacion : this.formData.educacion
-
-            }
-            return educacion;
+    setEducacion(data: Educacion){
+        this.isEducacionFormValid = true;
+        this.formData.per_emergencia = data.per_emergencia;
+        this.formData.educacion = data.educacion;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     
 
-    getFamilia() : Familia {
-        // Return the Familia type
-            var familia : Familia = {
-                familia : this.formData.familia
-
-            }
-            return familia;
-    }
-    
+   
     setFamilia(data: Familia) {
         // Update the work type only when the Work Form had been validated successfully
         this.isFamiliaFormValid = true;
         this.formData.familia = data.familia;
     }
 
-    getAddress() : Address {
-        // Return the Address data
-        var address: Address = {
-            street: this.formData.street,
-            city: this.formData.city,
-            state: this.formData.state,
-            zip: this.formData.zip
-        };
-        return address;
-    }
-
-    setAddress(data: Address) {
-        // Update the Address data only when the Address Form had been validated successfully
-        this.isAddressFormValid = true;
-        this.formData.street = data.street;
-        this.formData.city = data.city;
-        this.formData.state = data.state;
-        this.formData.zip = data.zip;
-    }
-
-    getFormData(): FormData {
-        // Return the entire Form Data
-        return this.formData;
-    }
+   
+// funciones especiales 
+  
 
     resetFormData(): FormData {
         // Return the form data after all this.* members had been reset
         this.formData.clear();
-        this.isPersonalFormValid = this.isFamiliaFormValid = this.isAddressFormValid = false;
+        this.isPersonalFormValid = this.isFamiliaFormValid = this.isEducacionFormValid = false;
         return this.formData;
     }
 
@@ -180,6 +113,6 @@ export class FormDataService {
         // Return true if all forms had been validated successfully; otherwise, return false
         return this.isPersonalFormValid &&
                 this.isFamiliaFormValid && 
-                this.isAddressFormValid;
+                this.isEducacionFormValid;
     }
 }

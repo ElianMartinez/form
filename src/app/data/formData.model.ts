@@ -19,29 +19,74 @@ export class FormData {
 
     //Datos Familiares
      familia:Object[] = [];
+
+     //Datos Educacion
      educacion:Object[] = [];
-     
-    
+     per_emergencia: string;
+
+     //Datos Comp_Tec
+     com_tec: Object[] = [
+           { "Competencia_tecnica" : ""}
+     ];
+
+     //Datos Idiomas
+     idiomas: Object[] = [
+            {
+                "idioma" : "",
+                "lee" : "",
+                "habla" : ""
+            }
+     ];
+     //Datos experiencia_lab
+
+     experiencia_lab : Object[] = [
+            {
+                "nombre_empresa": "",
+                "desde" : "",
+                "hasta" : "",
+                "puesto" : "",
+                "nombre_supervisor": "",
+                "motivo_salida" : ""
+            }
+     ];
+     //Datos referencia_personales
+
+     referencia_personales: Object[] = [
+       { "nombre" : "",
+         "telefono" : "",
+         "tiempo_conoce" : "",
+         "ocupacion" : ""
+        }
+     ];
+//Datos Actividad Extraoirdinaria 
+     tipo_actividad : string;
+     propia : boolean;
+     dias: number;
+     horario : Date;
+     participacion_acciones: boolean;
+     ingresos_promedio_mensuales: number;
+
+     referenciado_apap: string;
+
+
+
+
+
+
+
+
 
     
 
+    
 
 
-    email: string = '';
-    work: string = '';
-    street: string = '';
-    city: string = '';
-    state: string = '';
-    zip: string = '';
+
+  
 
     clear() {
         
-        this.email = '';
-        this.work = '';
-        this.street = '';
-        this.city = '';
-        this.state = '';
-        this.zip = '';
+       
     }
 }
 
@@ -77,5 +122,31 @@ export class Familia {
 
 
 export class Educacion {
+    per_emergencia: string;
     educacion:Object[] = [];
 }
+export class Com_Tec {
+    com_tec: Object[] = [];
+}
+
+export class Idioma {
+    idiomas: Object[] = [];
+}
+
+export class Experiencia_lab{
+    experiencia_lab : Object[] = [];
+}
+
+export class Actividad_extra{
+    tipo_actividad : string;
+    propia : boolean;
+    dias: number;
+    horario : Date;
+    participacion_acciones: boolean;
+    ingresos_promedio_mensuales: number;
+
+    referenciado_apap: string;
+}
+
+
+

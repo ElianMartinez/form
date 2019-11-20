@@ -229,7 +229,7 @@
                        
                         <div class='col-xs-8 col-sm-4'>
                                 <div class="form-group">
-                                    <label class="control-label" for="fecha_nacimiento"></label>  
+                                    <label class="control-label" for="fecha_nacimiento">Fecha Nacimiento</label>  
                                     <input class="form-control input-md " #fecha_nacimiento="ngModel" required id="fecha_nacimiento" name="fecha_nacimiento"  type="date"  required  [(ngModel)]="familia_temp.fecha_nac">
                                     <div class="alert alert-danger" *ngIf="fecha_nacimiento.touched && !fecha_nacimiento.valid">Last Name is required</div>
                                 </div>

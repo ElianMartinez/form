@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormDataService } from '../data/formData.service';
-import { Personal, Familia} from '../data/formData.model';
+import { Personal, Familia, Educacion} from '../data/formData.model';
 import { Router } from '@angular/router';
 import { NacionalidadesService } from '../data/nacionalidades.service';
 
@@ -12,10 +12,15 @@ import { NacionalidadesService } from '../data/nacionalidades.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+ //datos Estraidos
   personal: Personal;
-  public familia: Familia;
+  familia: Familia;
+  educacion: Educacion;
+// datos se api
     nacionalida: any;
-   public nacionalidades: any[] = [];
+    public nacionalidades: any[] = [];
+
+//datos de var temp familia
    contadorF:number = 0;
    familia_temp = {
     "nombre" : "",
@@ -25,6 +30,18 @@ export class FormComponent implements OnInit {
     "telefono" : "" 
   }
   f : boolean = false;
+
+// datos de var temp Educaciom
+contadorE:number = 0;
+educacion_temp = {
+ "estudiante" : "",
+ "centro_docente" : "",
+ "fecha_inicio" : "",
+ "fecha_final" : "",
+ "grado_obtenido" : "" 
+}
+e : boolean = false;
+
 
    step:string;
    title = 'Multi-Step Wizard';
@@ -114,7 +131,6 @@ export class FormComponent implements OnInit {
       if (this.save(form)) {
         // Navigate to the work page
         this.router.navigate([`/form/${num}`]);
-
     }
     
     
@@ -141,15 +157,14 @@ export class FormComponent implements OnInit {
     return true;
 
 }
+//funciones de Familiaa
     borrarF(i : number){
       this.contadorF--;
         this.familia.familia.splice(i,1);
         if(this.contadorF <= 0){
          this.f = false;
         }
-    }
-
-
+      }
 
     agregarF(){
         this.contadorF++;
@@ -171,10 +186,41 @@ export class FormComponent implements OnInit {
       }else{
         alert("No se pueden agregar más familiares");
       }
-      
-      
-      
+
     }
+
+    //funciones de educacion
+    borrarE(i : number){
+      this.contadorE--;
+        this.educacion.educacion.splice(i,1);
+        if(this.contadorE <= 0){
+         this.f = false;
+        }
+      }
+
+    agregarE(){
+        this.contadorE++;
+      if(this.contadorE <= 6){
+        this.e = true;
+        this.educacion.educacion.push
+      ({
+      "estudiante" : this.educacion_temp.estudiante, 
+      "centro_docente" : this.educacion_temp.centro_docente, 
+      "fecha_inicio" : this.educacion_temp.fecha_inicio,
+      "ocupacion" : this.educacion_temp.fecha_final,
+      "telefono" : this.educacion_temp.grado_obtenido 
+    });
+    this.educacion_temp.estudiante = "";
+    this.educacion_temp.centro_docente = "";
+    this.educacion_temp.fecha_inicio = "";
+    this.educacion_temp.fecha_final = "";
+    this.educacion_temp.grado_obtenido = "";
+      }else{
+        alert("No se pueden agregar más Educacion");
+      }
+
+    }
+
  
     ngOnInit() {
         this.personal = this.formDataService.getPersonal();

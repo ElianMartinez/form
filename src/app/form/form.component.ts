@@ -24,6 +24,7 @@ export class FormComponent implements OnInit {
     "ocupacion" : "",
     "telefono" : "" 
   }
+  f : boolean = false;
 
    step:string;
    title = 'Multi-Step Wizard';
@@ -103,13 +104,32 @@ export class FormComponent implements OnInit {
     }
 
    next(num:number,form: any){
-    if (this.save(form)) {
-      // Navigate to the work page
-      this.router.navigate([`/form/${num}`]);
-     
+     if(num == 3){
+      if (this.save(form)) {
+        // Navigate to the work page
+        this.router.navigate([`/form/${num}`]);
+
+    }
+    }else{
+      if (this.save(form)) {
+        // Navigate to the work page
+        this.router.navigate([`/form/${num}`]);
+
+    }
+    
+    
   }
   
    }
+
+   
+   savef(form: any): boolean {
+   
+    console.log(this.familia);
+    this.formDataService.setFamilia(this.familia);
+    return true;
+
+}
       
 
    save(form: any): boolean {
@@ -124,6 +144,9 @@ export class FormComponent implements OnInit {
     borrarF(i : number){
       this.contadorF--;
         this.familia.familia.splice(i,1);
+        if(this.contadorF <= 0){
+         this.f = false;
+        }
     }
 
 
@@ -131,7 +154,7 @@ export class FormComponent implements OnInit {
     agregarF(){
         this.contadorF++;
       if(this.contadorF <= 6){
-
+        this.f = true;
         this.familia.familia.push
       ({
       "nombre" : this.familia_temp.nombre, 
@@ -140,10 +163,16 @@ export class FormComponent implements OnInit {
       "ocupacion" : this.familia_temp.ocupacion,
       "telefono" : this.familia_temp.telefono 
     });
+    this.familia_temp.nombre = "";
+    this.familia_temp.parentesco = "";
+    this.familia_temp.ocupacion = "";
+    this.familia_temp.fecha_nac = "";
+    this.familia_temp.telefono = "";
       }else{
         alert("No se pueden agregar más familiares");
       }
-
+      
+      
       
     }
  

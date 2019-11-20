@@ -170,7 +170,7 @@
                             </div>
                                    
                                <div class="form-group text-center">
-                                   <button class="btn btn-success btn-outline-rounded btn-info"   (click)="(activarStep(2,personalForm))"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+                                   <button class="btn btn-success btn-outline-rounded btn-info"  (click)="(activarStep(2,personalForm))"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
                                </div>
                            </div>
                        </div>
@@ -187,7 +187,9 @@
                           
             
               <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+                    <form #familiaForm="ngForm" class="editForm" novalidate>
                 <div class="row">
+                  
                         <div class='col-xs-8 col-sm-4'>
                                 <div class="form-group">
                                     <label class="control-label" for="noombre_f">Nombre</label>  
@@ -242,13 +244,14 @@
                                 </div>
 
                                 <div class="form-group text-center">
-                                        <button class="btn btn-success btn-outline-rounded btn-info"   (click)="(agregarF())"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
+                                        <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!familiaForm.valid" (click)="(agregarF())"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
                                     </div>
-                                   
+                             
                                   <!--   -->
 
 
                 </div>
+            </form>
                 </div>
                 <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
               <div class="row">
@@ -275,7 +278,7 @@
                                                     <td>{{fam.fecha_nac}}</td>
                                                     <td>{{fam.ocupacion}}</td>
                                                     <td>{{fam.telefono}}</td>
-                                                    <td (click)="borrarF(indice)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></td>
+                                                    <td (click)="borrarF(indice)"  class="btn btn-danger"><i class="fas fa-trash-alt"></i></td>
                                                 </tr>
                                                 
                                             </tbody>
@@ -283,6 +286,10 @@
                             </table>
                           </div>
                         </div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!f"  (click)="(activarStep(3,familiaForm))"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
                         </div>
                         
                        

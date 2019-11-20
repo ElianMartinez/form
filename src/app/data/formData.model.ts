@@ -18,10 +18,26 @@ export class FormData {
     correo:string = '';
 
     //Datos Familiares
-     familia:Object[] = [];
+     familia:Object[] = [
+        {
+            "nombre" : "", 
+            "parentesco" : "", 
+            "fecha_nac" : "",
+            "ocupacion" : "",
+            "telefono" :""
+        }
+     ];
 
      //Datos Educacion
-     educacion:Object[] = [];
+     educacion:Object[] = [
+        {
+            "estudiante" : "", 
+            "centro_docente" : "", 
+            "fecha_inicio" : "",
+            "ocupacion" : "",
+            "telefono" :"" 
+        }
+     ];
      per_emergencia: string;
 
      //Datos Comp_Tec
@@ -118,13 +134,7 @@ export class Address {
 
 export class Familia {
     familia:Object[] = [
-        {
-            "nombre" : "", 
-            "parentesco" : "", 
-            "fecha_nac" : "",
-            "ocupacion" : "",
-            "telefono" :""
-        }
+       
     ];
 }
 
@@ -132,13 +142,7 @@ export class Familia {
 export class Educacion {
     per_emergencia: string;
     educacion:Object[] = [
-        {
-            "estudiante" : "", 
-            "centro_docente" : "", 
-            "fecha_inicio" : "",
-            "ocupacion" : "",
-            "telefono" :"" 
-        }
+        
     ];
 }
 export class Com_Tec {

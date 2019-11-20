@@ -82,8 +82,7 @@ export class FormData {
      participacion_acciones: boolean;
      ingresos_promedio_mensuales: number;
 
-     referenciado_apap: string;
-
+   
 
 
 
@@ -165,7 +164,6 @@ export class Actividad_extra{
     participacion_acciones: boolean;
     ingresos_promedio_mensuales: number;
 
-    referenciado_apap: string;
 }
 
 export class Referencia_personales {

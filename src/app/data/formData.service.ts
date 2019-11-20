@@ -62,8 +62,8 @@ getActividad_extra(): Actividad_extra {
     dias: this.formData.dias,
     horario : this.formData.horario,
     participacion_acciones: this.formData.participacion_acciones,
-    ingresos_promedio_mensuales: this.formData.ingresos_promedio_mensuales;
-    referenciado_apap: this.formData.referenciado_apap
+    ingresos_promedio_mensuales: this.formData.ingresos_promedio_mensuales
+  
     }
     return actividad_extra;
 }
@@ -149,48 +149,42 @@ getActividad_extra(): Actividad_extra {
         this.formData.familia = data.familia;
     }
 
-    setCom_Tec(): Com_Tec {
+    setCom_Tec(data: Com_Tec) {
         // Return the entire Form Data
-       var com_tec: Com_Tec = {
-            com_tec : this.formData.com_tec
-        }
-        return com_tec;
+             this.formData.com_tec = data.com_tec
+      
     }
     
-    setExperiencia_lab(): Experiencia_lab {
+    setExperiencia_lab(data: Experiencia_lab) {
         // Return the entire Form Data
-       var experiencia_lab : Experiencia_lab = {
-        experiencia_lab : this.formData.experiencia_lab
-        }
-        return experiencia_lab;
+     
+       this.formData.experiencia_lab = data.experiencia_lab
+       
     }
     
-    setReferencia_personales(): Referencia_personales {
-        // Return the entire Form Data
-       var referencia_personales : Referencia_personales = {
-        referencia_personales : this.formData.referencia_personales
-        }
-        return referencia_personales;
-    }
-    
-    setIdioma(): Idiomas {
-        // Return the entire Form Data
-       var idiomas : Idiomas = {
-            idiomas : this.formData.idiomas
-        }
-        return idiomas;
-    }
-    
-    setActividad_extra(): Actividad_extra {
+    setReferencia_personales(data: Referencia_personales) {
         // Return the entire Form Data
       
-      this.formData.tipo_actividad,
-      this.formData.propia,
-       this.formData.dias,
-      this.formData.horario,
-      this.formData.participacion_acciones,
-      this.formData.ingresos_promedio_mensuales;
-      this.formData.referenciado_apap
+        this.formData.referencia_personales = data.referencia_personales
+       
+    }
+    
+    setIdioma(data : Idiomas) {
+        // Return the entire Form Data
+        this.formData.idiomas = data.idiomas
+    
+    }
+    
+    setActividad_extra(data :  Actividad_extra ){
+        // Return the entire Form Data
+      
+      this.formData.tipo_actividad = data.tipo_actividad;
+      this.formData.propia = data.propia;
+       this.formData.dias = data.dias;
+      this.formData.horario = data.horario;
+      this.formData.participacion_acciones = data.participacion_acciones;
+      this.formData.ingresos_promedio_mensuales = data.ingresos_promedio_mensuales;
+    
      
     }
 

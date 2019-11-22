@@ -170,6 +170,7 @@ export class FormComponent implements OnInit {
 
     if (this.save(form, num)) {
       // Navigate to the work page
+      console.log(num);
       this.router.navigate([`/form/${num}`]);
     }
 
@@ -179,7 +180,7 @@ export class FormComponent implements OnInit {
 
   save(form: any, num: number): boolean {
 
-    if (num == 1) {
+    if (num == 2) {
       if (!form.valid) {
         return false;
       }
@@ -187,59 +188,47 @@ export class FormComponent implements OnInit {
       this.formDataService.setPersonal(this.personal);
       return true;
     }
-    if (num == 2) {
-      if (!form.valid) {
-        return false;
-      }
+    if (num == 3) {
+      
       console.log(this.familia);
       this.formDataService.setFamilia(this.familia);
       return true;
     }
-    if (num == 3) {
-      if (!form.valid) {
-        return false;
-      }
+    if (num == 4) {
+      
       console.log(this.educacion);
       this.formDataService.setEducacion(this.educacion);
       return true;
     }
-    if (num == 4) {
-      if (!form.valid) {
-        return false;
-      }
+    if (num == 5) {
+     
       console.log(this.com_tec);
       this.formDataService.setCom_Tec(this.com_tec);
       return true;
     }
 
 
-    if (num == 5) {
-      if (!form.valid) {
-        return false;
-      }
+    if (num == 6) {
+      
       console.log(this.com_tec);
       this.formDataService.setIdioma(this.idiomas);
       return true;
 
     }
-    if (num == 6) {
-      if (!form.valid) {
-        return false;
-      }
+    if (num == 7) {
+      
       console.log(this.experiencia_lab);
       this.formDataService.setExperiencia_lab(this.experiencia_lab);
       return true;
 
     }
-    if (num == 7) {
-      if (!form.valid) {
-        return false;
-      }
+    if (num == 8) {
+      
       console.log(this.referencia_personales);
       this.formDataService.setReferencia_personales(this.referencia_personales);
       return true;
     }
-    if (num == 8) {
+    if (num == 9) {
       if (!form.valid) {
         return false;
       }
@@ -448,7 +437,7 @@ export class FormComponent implements OnInit {
     this.actividad_extra = this.formDataService.getActividad_extra();
     this.educacion = this.formDataService.getEducacion();
     this.step = this.rutaActiva.snapshot.params.number;
-
+      console.log(this.formData);
 
     this.nacionalidadService.getNacionalidad()
       .subscribe(

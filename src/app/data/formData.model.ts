@@ -17,6 +17,14 @@ export class FormData {
     celular: number = null;
     correo: string = '';
 
+    //Datos Actividad Extraoirdinaria 
+    tipo_actividad: string = '';
+    propia: boolean = null;
+    dias: number = null;
+    horario: Date = null;
+    participacion_acciones: boolean = null; 
+    ingresos_promedio_mensuales: number = null;
+
     //Datos Familiares
     familia: Object[] = [
 
@@ -26,55 +34,19 @@ export class FormData {
     educacion: Object[] = [
 
     ];
-    per_emergencia: string;
+    per_emergencia: string = '';
 
     //Datos Comp_Tec
-    com_tec: Object[] = [
-
-    ];
+    com_tec: Object[] = [];
 
     //Datos Idiomas
-    idiomas: Object[] = [
-
-    ];
+    idiomas: Object[] = [];
     //Datos experiencia_lab
 
-    experiencia_lab: Object[] = [
-
-    ];
+    experiencia_lab: Object[] = [];
     //Datos referencia_personales
 
-    referencia_personales: Object[] = [
-        {
-            "nombre": "",
-            "telefono": "",
-            "tiempo_conoce": "",
-            "ocupacion": ""
-        }
-    ];
-    //Datos Actividad Extraoirdinaria 
-    tipo_actividad: string;
-    propia: boolean;
-    dias: number;
-    horario: Date;
-    participacion_acciones: boolean;
-    ingresos_promedio_mensuales: number;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    referencia_personales: Object[] = [];
 
 
     clear() {

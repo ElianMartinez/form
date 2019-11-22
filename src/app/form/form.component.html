@@ -392,131 +392,136 @@
 
 
                         <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
-                            <form #EducacionForm="ngForm" class="editForm" novalidate>
-                                <div class="row">
 
-                                        <div class='col-xs-8 col-sm-4'>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="parentesco">Dato de Familiar de confianza</label>
-                                                    <select class="form-control input-md " #parentesco="ngModel" required
-                                                        id="parentesco" name="parentesco" required
-                                                        [(ngModel)]="educacion_temp.parentesco">
-                                                        <option value="Padre">Padre</option>
-                                                        <option value="Madre">Madre</option>
-                                                        <option value="Hermano">Hermano</option>
-                                                        <option value="Hermana">Hermana</option>
-                                                    </select>
-                                                    <div class="alert alert-danger"
-                                                        *ngIf="parentesco.touched && !parentesco.valid">Last Name is required
-                                                    </div>
-                                                </div>
+                            <div class="row">
+                                <form #EducacionForm="ngForm" class="editForm" novalidate>
+                                    <div class='col-xs-8 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="parentesco">Dato de Familiar de
+                                                confianza</label>
+                                            <select class="form-control input-md " #parentesco="ngModel" required
+                                                id="parentesco" name="parentesco" required
+                                                [(ngModel)]="educacion_temp.parentesco">
+                                                <option value="Padre">Padre</option>
+                                                <option value="Madre">Madre</option>
+                                                <option value="Hermano">Hermano</option>
+                                                <option value="Hermana">Hermana</option>
+                                            </select>
+                                            <div class="alert alert-danger"
+                                                *ngIf="parentesco.touched && !parentesco.valid">Last Name is required
                                             </div>
-
-                                        <div class='col-xs-8 col-sm-4'>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="parentesco">Estudios</label>
-                                                    <select class="form-control input-md " #Estudios="ngModel" required
-                                                        id="Estudios" name="parentesco" required
-                                                        [(ngModel)]="educacion_temp.estudiante">
-                                                        <option value="Primaria">Primaria</option>
-                                                        <option value="Secundario">Secundario</option>
-                                                        <option value="Universidad">Universidad</option>
-                                                       
-                                                    </select>
-                                                    <div class="alert alert-danger"
-                                                        *ngIf="Estudios.touched && !Estudios.valid">Last Name is required
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class='col-xs-8 col-sm-4'>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="telefonos">Centro Docente</label>
-                                                        <input class="form-control input-md " #centrod="ngModel" required id=""
-                                                            name="telefonos" type="text" 
-                                                            [(ngModel)]="educacion_temp.centro_docente">
-                                                        <div class="alert alert-danger"
-                                                            *ngIf="centrod.touched && !centrod.valid">Last Name is required
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
-
-
-
-
-
-                                </div>
-                                <div class="row">
-
-                                        <div class='col-xs-8 col-sm-4'>
-                                                <div class="form-group">
-                                                    <label class="control-label" for="fecha_nacimiento">Fecha Inicio</label>
-                                                    <input class="form-control input-md " #Fecha_inicio="ngModel" required
-                                                        id="Fecha_inicio" name="Fecha_inicio" type="date" required
-                                                        [(ngModel)]="educacion_temp.fecha_inicio">
-                                                    <div class="alert alert-danger"
-                                                        *ngIf="Fecha_inicio.touched && !Fecha_inicio.valid">Last Name is
-                                                        required</div>
-                                                </div>
-                                            </div>
-                                            <div class='col-xs-8 col-sm-4'>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="Fecha_fin">Fecha Fin</label>
-                                                        <input class="form-control input-md " #Fecha_fin="ngModel" required
-                                                            id="Fecha_fin" name="Fecha_fin" type="date" required
-                                                            [(ngModel)]="educacion_temp.fecha_final">
-                                                        <div class="alert alert-danger"
-                                                            *ngIf="Fecha_fin.touched && !Fecha_fin.valid">Last Name is
-                                                            required</div>
-                                                    </div>
-                                                </div>
-                                                
-                                            <div class='col-xs-8 col-sm-4'>
-                                                    <div class="form-group">
-                                                        <label class="control-label" for="telefonos">Grado Obtenido</label>
-                                                        <input class="form-control input-md " #gradoO="ngModel" required id="gradoO"
-                                                            name="gradoO" type="text" 
-                                                            [(ngModel)]="educacion_temp.grado_obtenido">
-                                                        <div class="alert alert-danger"
-                                                            *ngIf="gradoO.touched && !gradoO.valid">Last Name is required
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class='col-xs-8 col-sm-4'>
-                                                        <div class="form-group">
-                                                            <label class="control-label" for="actual">Grado Actual</label>
-                                                            <select class="form-control input-md " #gradoa="ngModel" required
-                                                                id="actual" name="actual" required
-                                                                [(ngModel)]="educacion_temp.actual">
-                                                                <option value="true">Este es mi Grado actual</option>
-                                                                <option value="false">este no es mi Grado actual</option>
-                                                            </select>
-                                                            <div class="alert alert-danger"
-                                                                *ngIf="gradoa.touched && !gradoa.valid">Last Name is required
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                               
-
-                                  
-
-                                  
-
-                                    <div class="form-group text-center">
-                                        <button class="btn btn-success btn-outline-rounded"
-                                            [disabled]="!EducacionForm.valid" (click)="(agregarE())"> <i
-                                                style="font-size: 20px;" class="fas fa-user-plus"></i></button>
+                                        </div>
                                     </div>
+                                </form>
+                            </div>
+                            <div class="row">
 
-                                    <!--   -->
+                                <div class='col-xs-8 col-sm-4'>
+                                    <div class="form-group">
+                                        <label class="control-label" for="parentesco">Estudios</label>
+                                        <select class="form-control input-md " #Estudios="ngModel" required
+                                            id="Estudios" name="parentesco" required
+                                            [(ngModel)]="educacion_temp.estudiante">
+                                            <option value="Primaria">Primaria</option>
+                                            <option value="Secundario">Secundario</option>
+                                            <option value="Universidad">Universidad</option>
 
-
+                                        </select>
+                                        <div class="alert alert-danger" *ngIf="Estudios.touched && !Estudios.valid">Last
+                                            Name is required
+                                        </div>
+                                    </div>
                                 </div>
-                            </form>
+
+                                <div class='col-xs-8 col-sm-4'>
+                                    <div class="form-group">
+                                        <label class="control-label" for="telefonos">Centro Docente</label>
+                                        <input class="form-control input-md " #centrod="ngModel" required id=""
+                                            name="telefonos" type="text" [(ngModel)]="educacion_temp.centro_docente">
+                                        <div class="alert alert-danger" *ngIf="centrod.touched && !centrod.valid">Last
+                                            Name is required
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class='col-xs-8 col-sm-4'>
+                                    <div class="form-group">
+                                        <label class="control-label" for="fecha_nacimiento">Fecha Inicio</label>
+                                        <input class="form-control input-md " #Fecha_inicio="ngModel" required
+                                            id="Fecha_inicio" name="Fecha_inicio" type="date" required
+                                            [(ngModel)]="educacion_temp.fecha_inicio">
+                                        <div class="alert alert-danger"
+                                            *ngIf="Fecha_inicio.touched && !Fecha_inicio.valid">Last Name is
+                                            required</div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+                            <div class="row">
+
+
+                                <div class='col-xs-8 col-sm-4'>
+                                    <div class="form-group">
+                                        <label class="control-label" for="Fecha_fin">Fecha Fin</label>
+                                        <input class="form-control input-md " #Fecha_fin="ngModel" required
+                                            id="Fecha_fin" name="Fecha_fin" type="date" required
+                                            [(ngModel)]="educacion_temp.fecha_final">
+                                        <div class="alert alert-danger" *ngIf="Fecha_fin.touched && !Fecha_fin.valid">
+                                            Last Name is
+                                            required</div>
+                                    </div>
+                                </div>
+
+                                <div class='col-xs-8 col-sm-4'>
+                                    <div class="form-group">
+                                        <label class="control-label" for="telefonos">Grado Obtenido</label>
+                                        <input class="form-control input-md " #gradoO="ngModel" required id="gradoO"
+                                            name="gradoO" type="text" [(ngModel)]="educacion_temp.grado_obtenido">
+                                        <div class="alert alert-danger" *ngIf="gradoO.touched && !gradoO.valid">Last
+                                            Name is required
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class='col-xs-8 col-sm-4'>
+                                    <div class="form-group">
+                                        <label class="control-label" for="actual">Grado Actual</label>
+                                        <select class="form-control input-md " #gradoa="ngModel" required id="actual"
+                                            name="actual" required [(ngModel)]="educacion_temp.actual">
+                                            <option value="true">Este es mi Grado actual</option>
+                                            <option value="false">este no es mi Grado actual</option>
+                                        </select>
+                                        <div class="alert alert-danger" *ngIf="gradoa.touched && !gradoa.valid">Last
+                                            Name is required
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+                                <!--   -->
+
+
+                            </div>
+
+
+                            <div class="form-group text-center">
+                                <button class="btn btn-success btn-outline-rounded" [disabled]="!EducacionForm.valid"
+                                    (click)="(agregarE())"> <i style="font-size: 20px;"
+                                        class="fas fa-user-plus"></i></button>
+                            </div>
+
                         </div>
                         <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
                             <div class="row">
@@ -546,8 +551,8 @@
                                                 <td>{{edu.grado_obtenido}}</td>
                                                 <td>{{edu.actual}}</td>
                                                 <td (click)="borrarE(indice)" class="btn btn-danger"><i
-                                                    class="fas fa-trash-alt"></i></td>
-                                                
+                                                        class="fas fa-trash-alt"></i></td>
+
                                             </tr>
 
                                         </tbody>
@@ -556,13 +561,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="form-group text-center">
+                                <button class="btn btn-default btn-outline-rounded "
+                                    (click)="(activarStep(2,familiaForm))"> Anterior <span style="margin-left:10px;"
+                                        class="glyphicon glyphicon-arrow-left"></span></button>
+                            </div>
 
-                        <div class="form-group text-center">
-                            <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!e"
-                                (click)="(activarStep(4,EducacionForm))"> Next <span style="margin-left:10px;"
-                                    class="glyphicon glyphicon-arrow-right"></span></button>
+                            <div class="form-group text-center">
+                                <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!e"
+                                    (click)="(activarStep(4,EducacionForm))"> Siguiente <span style="margin-left:10px;"
+                                        class="glyphicon glyphicon-arrow-right"></span></button>
+                            </div>
                         </div>
-
 
 
                     </div>
@@ -571,101 +582,148 @@
 
 
                 <div class="ConTec" [ngClass]="actConTec ? 'active' : 'disabled22' ">
-                    
-                    
-                        <div class="tab-pane fade in active">
-                                <h4 class="head text-center">Datos de Competencias Tecnicas</h4>
-                                <br />
-        
-        
-                                <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
-                                    <form #EducacionForm="ngForm" class="editForm" novalidate>
-                                        <div class="row">
-                                                    
-                                                    <div class='col-xs-8 col-sm-4'>
-                                                            <div class="form-group">
-                                                                <label class="control-label" for="telefonos">Centro Docente</label>
-                                                                <input class="form-control input-md " #centrod="ngModel" required id=""
-                                                                    name="telefonos" type="text" 
-                                                                    [(ngModel)]="educacion_temp.centro_docente">
-                                                                <div class="alert alert-danger"
-                                                                    *ngIf="centrod.touched && !centrod.valid">Last Name is required
-                                                                </div>
-                                                            </div>
-                                                        </div>
-        
-        
-        
+                    <div class="tab-pane fade in active">
+                        <h4 class="head text-center">Datos de Competencias Tecnicas</h4>
+                        <br />
 
-        
-        
-                                        </div>
-                                      
-                                            <div class="form-group text-center">
-                                                <button class="btn btn-success btn-outline-rounded"
-                                                    [disabled]="!EducacionForm.valid" (click)="(agregarE())"> <i
-                                                        style="font-size: 20px;" class="fas fa-user-plus"></i></button>
+
+                        <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+                            <form #ConTec="ngForm" class="editForm" novalidate>
+                                <div class="row">
+
+                                    <div class='col-xs-12 col-sm-4'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="telefonos">Competencia Tecnica</label>
+                                            <input class="form-control input-md " #comtec="ngModel" required id=""
+                                                name="telefonos" type="text" [(ngModel)]="com_tec_temp.competencia">
+                                            <div class="alert alert-danger" *ngIf="comtec.touched && !comtec.valid">Last
+                                                Name is required
                                             </div>
-        
-                                            <!--   -->
-        
-        
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
-                                    <div class="row">
-        
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered  table-hover">
-        
-                                                <thead>
-                                                    <tr>
-                                                        <th>No</th>
-                                                        <th>Estudios</th>
-                                                        <th>Centro Educativo</th>
-                                                        <th>Fecha de Inicio</th>
-                                                        <th>Fecha de Fin</th>
-                                                        <th>Grado Obtenido</th>
-                                                        <th>Grado Actual</th>
-                                                        <th>Eliminar</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr *ngFor="let edu of educacion.educacion; let indice=index">
-                                                        <td>{{indice+1}}</td>
-                                                        <td>{{edu.estudiante}}</td>
-                                                        <td>{{edu.centro_docente}}</td>
-                                                        <td>{{edu.fecha_inicio}}</td>
-                                                        <td>{{edu.fecha_final}}</td>
-                                                        <td>{{edu.grado_obtenido}}</td>
-                                                        <td>{{edu.actual}}</td>
-                                                        <td (click)="borrarE(indice)" class="btn btn-danger"><i
-                                                            class="fas fa-trash-alt"></i></td>
-                                                        
-                                                    </tr>
-        
-                                                </tbody>
-        
-                                            </table>
                                         </div>
                                     </div>
+
+
+
+                                    <div class="form-group text-center">
+                                        <button class="btn btn-success btn-outline-rounded" [disabled]="!ConTec.valid"
+                                            (click)="(agregarC())"> <i style="font-size: 20px;"
+                                                class="fas fa-user-plus"></i></button>
+                                    </div>
+
+
                                 </div>
-        
-                                <div class="form-group text-center">
-                                    <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!e"
-                                        (click)="(activarStep(4,EducacionForm))"> Next <span style="margin-left:10px;"
-                                            class="glyphicon glyphicon-arrow-right"></span></button>
-                                </div>
-        
-        
-        
+
+
+
+                                <!--   -->
+
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+                        <div class="row">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered  table-hover">
+
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Competencia Tecnicas</th>
+
+                                            <th>Eliminar</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let com of com_tec.com_tec; let indice=index">
+                                            <td>{{indice+1}}</td>
+                                            <td>{{com.competencia}}</td>
+
+                                            <td (click)="borrarC(indice)" class="btn btn-danger"><i
+                                                    class="fas fa-trash-alt"></i></td>
+
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button class="btn btn-success btn-outline-rounded btn-info" [disabled]="!e"
+                            (click)="(activarStep(5,ConTec))"> Next <span style="margin-left:10px;"
+                                class="glyphicon glyphicon-arrow-right"></span></button>
+                    </div>
+
+
+
                 </div>
 
+
                 <div class="Idioma" [ngClass]="actIdioma ? 'active' : 'disabled22' ">
-                    <p>Idiomas</p>
-                    <button (click)="activarStep(6)">next</button>
+                    <div class="tab-pane fade in active">
+                        <h4 class="head text-center">Datos de Educacion</h4>
+                        <br />
+
+                        <div class="col-xs-offset-1 col-xs-12 col-sm-offset-1 col-sm-10 ">
+
+                            <div class="row">
+
+                                <table class="table text-center">
+                                    <tr>
+                                        <th>Nombre del idioma</th>
+                                        <th>Lee</th>
+                                        <th>Habla</th>
+                                        <th>Escribe</th>
+                                        <th></th>
+
+                                    </tr>
+
+                                    <tr>
+                                        <th>
+                                            <form #IdiomaForm="ngForm">
+                                                <div class='col-xs-12 col-sm-6'>
+                                                    <select class="form-control input-md " #comtec="ngModel" required
+                                                        id="" name="idioma" [(ngModel)]="idiomas_temp.idioma">
+                                                        <option value="Español">Español</option>
+                                                        <option value="Ingles">Ingles</option>
+                                                        <option value="Frances">Frances</option>
+                                                        <option value="Italiano">Italiano</option>
+                                                    </select>
+                                                </div>
+
+                                            </form>
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" name="Lee" [(ngModel)]="idiomas_temp.lee">
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" name="Lee" [(ngModel)]="idiomas_temp.habla">
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" name="Lee" [(ngModel)]="idiomas_temp.escribe">
+                                        </th>
+
+                                        <th>
+                                            <div class="form-group text-center">
+                                                <button class="btn btn-success btn-outline-rounded"
+                                                    [disabled]="!IdiomaForm.valid" (click)="(agregarI())"> <i
+                                                        style="font-size: 20px;" class="fas fa-user-plus"></i></button>
+                                            </div>
+                                        </th>
+                                    </tr>
+
+
+
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
 
                 <div class="ExpLaboral" [ngClass]="actExpLaboral ? 'active' : 'disabled22' ">
